@@ -4,15 +4,15 @@
 using namespace std;
 
 
-vector<short> cache(10000000,0);
+vector<short> cache(568,0);
 unsigned endsIn(unsigned n) {
-	if(!cache[n]) {
+	if(n > 567 || !cache[n]) {
 		unsigned nxt = 0, aux = n;
 		while(aux) {
 			nxt += (aux%10) * (aux%10);
 			aux /= 10;
 		}
-		cache[n] = endsIn(nxt);
+		return endsIn(nxt);
 	}
 	return cache[n];
 }
