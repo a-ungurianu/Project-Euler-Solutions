@@ -55,8 +55,13 @@ def gcd(a,b):
 def lcm(a,b):
 	return (a*b)/gcd(a,b)
 
+def get_digits(nr):
+	while nr != 0:
+		yield nr%10
+		nr/=10
+
 def digit_sum(n):
-	return reduce(operator.add,(int(c) for c in str(abs(n))))
+	return reduce(operator.add,(c for c in get_digits(n)))
 
 def is_binary_palindrome(x) :
 	s = bin(x)[2:]
