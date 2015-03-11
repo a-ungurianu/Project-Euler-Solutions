@@ -1,12 +1,9 @@
 import csv
-import math
+from pemath import is_triangle
 
 def word_sum(word):
     return reduce(lambda a,x:a+x, (ord(c) - ord('A') + 1 for c in word))
 
-def is_triangle(t):
-    n = (math.sqrt(1 + 4*2*t) - 1) / 2
-    return n == int(n)
 
 count = 0
 
