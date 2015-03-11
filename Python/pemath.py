@@ -58,9 +58,66 @@ def lcm(a,b):
 def digit_sum(n):
 	return reduce(operator.add,(int(c) for c in str(abs(n))))
 
-def is_palindrome(n):
-	s = str(n)
-	if len(s) % 2 != 0:
-		return False
+def is_binary_palindrome(x) :
+	s = bin(x)[2:]
+	if len(s) % 2:
+		return s[:len(s)/2][::-1] == s[len(s)/2+1:]
 	else:
-		return s[:len(s)/2] == s[:len(s)/2-1:-1]
+		return s[:len(s)/2][::-1] == s[len(s)/2:]
+
+def is_palindrome(x) :
+	s = str(x)
+	if len(s) % 2:
+		return s[:len(s)/2][::-1] == s[len(s)/2+1:]
+	else:
+		return s[:len(s)/2][::-1] == s[len(s)/2:]
+
+def is_triangle(t):
+    n = ((1 + 4*2*t)**0.5 - 1) / 2
+    return n == int(n)
+
+def is_prime(n):
+	    '''check if integer n is a prime'''
+	    # make sure n is a positive integer
+	    n = abs(int(n))
+	    # 0 and 1 are not primes
+	    if n < 2:
+	        return False
+	    # 2 is the only even prime number
+	    if n == 2: 
+	        return True    
+	    # all other even numbers are not primes
+	    if not n & 1: 
+	        return False
+	    # range starts with 3 and only needs to go up the squareroot of n
+	    # for all odd numbers
+	    for x in range(3, int(n**0.5)+1, 2):
+	        if n % x == 0:
+	            return False
+	    return True
+
+def get_prime_factors(n):
+	d = 2
+	factors = []
+	while n != 1:
+		if n%d == 0:
+			k = 0
+			while n%d == 0:
+				n /= d;
+				k+=1
+			factors.append((d,k))
+		d += 1
+	return factors
+
+
+def is_pandigital(nr):
+	nr = str(nr)
+	found = set()
+	for n in nr:
+		if n == '0':
+			return False
+		if int(n) in found:
+			return False
+		else:
+			found.add(int(n))
+	return True
