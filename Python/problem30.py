@@ -1,15 +1,10 @@
-
-
-def getDigits(nr) :
-	while nr != 0:
-		yield nr%10
-		nr/=10
+from pemath import get_digits
 
 LIMIT = 1000000
 
 
 def sum5Dig(nr):
-	return sum(i**5 for i in getDigits(nr))
+	return sum(i**5 for i in get_digits(nr))
 
 
 total = 0
