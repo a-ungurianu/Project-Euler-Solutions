@@ -1,4 +1,5 @@
 import math
+import operator
 
 class PrimeNumbers:
 	def __init__(self,N):
@@ -23,3 +24,14 @@ class PrimeNumbers:
 
 	def get_nth_prime(self,n):
 		return self.primes[n]
+
+def gcd(a,b):
+	if b==0:
+		return a
+	return gcd(b,a%b)
+
+def lcm(a,b):
+	return (a*b)/gcd(a,b)
+
+def digit_sum(n):
+	return reduce(operator.add,(int(c) for c in str(abs(n))))
