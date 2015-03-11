@@ -20,3 +20,6 @@ class PrimeNumbers:
 
 	def get_first_primes(self,n):
 		return self.primes[:n]
+
+	def get_nth_prime(self,n):
+		return self.primes[n]
