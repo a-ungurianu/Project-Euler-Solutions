@@ -1,7 +1,7 @@
 
-
-multSum = 0
+fizz_buzz_sum = 0
 for i in range(1,1000):
 	if i % 3 == 0 or i % 5 == 0:
-		multSum+=i
-print(multSum)
+		fizz_buzz_sum+=i
+
+print fizz_buzz_sum
