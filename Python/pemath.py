@@ -57,3 +57,10 @@ def lcm(a,b):
 
 def digit_sum(n):
 	return reduce(operator.add,(int(c) for c in str(abs(n))))
+
+def is_palindrome(n):
+	s = str(n)
+	if len(s) % 2 != 0:
+		return False
+	else:
+		return s[:len(s)/2] == s[:len(s)/2-1:-1]
