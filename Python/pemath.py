@@ -56,9 +56,11 @@ def lcm(a,b):
 	return (a*b)/gcd(a,b)
 
 def get_digits(nr):
+	digits = []
 	while nr != 0:
-		yield nr%10
+		digits.append(nr%10)
 		nr/=10
+	return digits
 
 def digit_sum(n):
 	return reduce(operator.add,(c for c in get_digits(n)))
@@ -126,3 +128,10 @@ def is_pandigital(nr):
 		else:
 			found.add(int(n))
 	return True
+
+def reverse_number(n):
+	digits = get_digits(n)
+	result = 0
+	for d in digits:
+		result = result*10 + d
+	return result
