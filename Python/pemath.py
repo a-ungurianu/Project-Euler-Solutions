@@ -1,5 +1,6 @@
 import math
 import operator
+import itertools
 
 class PrimeNumbers:
 	def __init__(self,N):
@@ -135,3 +136,11 @@ def reverse_number(n):
 	for d in digits:
 		result = result*10 + d
 	return result
+
+def pentagonal_numbers():
+	for i in itertools.count(1):
+		yield i*(3*i-1)/2
+
+def is_pentagonal(x):
+	n = ((24*x +1)**0.5 + 1)/6
+	return n == int(n)
