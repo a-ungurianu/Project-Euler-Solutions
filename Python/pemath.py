@@ -20,6 +20,9 @@ class PrimeNumbers:
 			raise IndexError
 		return self.sieve[n]
 
+	def get_primes(self):
+		return iter(self.primes)
+
 	def get_first_primes(self,n):
 		return self.primes[:n]
 
@@ -79,6 +82,10 @@ def is_palindrome(x) :
 		return s[:len(s)/2][::-1] == s[len(s)/2+1:]
 	else:
 		return s[:len(s)/2][::-1] == s[len(s)/2:]
+
+def triangle_numbers():
+	for i in itertools.count(1):
+		yield i*(i+1)/2
 
 def is_triangle(t):
     n = ((1 + 4*2*t)**0.5 - 1) / 2
@@ -144,3 +151,7 @@ def pentagonal_numbers():
 def is_pentagonal(x):
 	n = ((24*x +1)**0.5 + 1)/6
 	return n == int(n)
+
+def hexagonal_numbers():
+	for i in itertools.count(1):
+		yield i*(2*i - 1)
