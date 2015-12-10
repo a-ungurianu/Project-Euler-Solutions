@@ -22,9 +22,9 @@ for x in count(1):
         count_primes += 1
 
     ratio = float(count_primes)/count_total
-    if ratio*100 < 10:
-        print(x,ratio)
+    if count_primes*100 < count_total*10:
+        print(2*x+1,ratio)
         break
     if x % 100 == 0:
-        print(x,ratio)
+        print(2*x+1,ratio)
 
