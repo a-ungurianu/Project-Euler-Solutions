@@ -2,12 +2,14 @@ import math
 import operator
 import itertools
 
+# Given a value N, this class precalculates all the prime numbers
+# up to N and keeps a boolean table for quick lookup of if a number is prime or not.
 class PrimeNumbers:
 	def __init__(self,N):
 		self.limit = N
-		self.precalc_primes(N)
+		self._precalc_primes(N)
 
-	def precalc_primes(self,N):
+	def _precalc_primes(self,N):
 		self.sieve = [True]*(N+1)
 		for d in range(2,int(N**0.5+1)):
 			if self.sieve[d]:
@@ -51,14 +53,17 @@ class Factorials:
 	def comb(self,n,k):
 		return self.factorials[n]/(self.factorials[k]*self.factorials[n-k])
 
+# Returns the greatest common divisor of the numbers a and b
 def gcd(a,b):
 	if b==0:
 		return a
 	return gcd(b,a%b)
 
+# Return the lowest common multiple of the numbers a and b
 def lcm(a,b):
 	return (a*b)/gcd(a,b)
 
+# Returns a list of the digits of the number in reverse order
 def get_digits(nr):
 	digits = []
 	while nr != 0:
@@ -66,6 +71,7 @@ def get_digits(nr):
 		nr/=10
 	return digits
 
+# Returns the sum of the digits of a number
 def digit_sum(n):
 	return reduce(operator.add,(c for c in get_digits(n)))
 
@@ -91,6 +97,9 @@ def is_triangle(t):
     n = ((1 + 4*2*t)**0.5 - 1) / 2
     return n == int(n)
 
+# Iterative prime test.
+# If the limit in which the numbers to be checked is known and it is within 
+# reasonable bounds (< 10^7), then the PrimeNumbers class is to be used
 def is_prime(n):
 	    '''check if integer n is a prime'''
 	    # make sure n is a positive integer
@@ -111,6 +120,8 @@ def is_prime(n):
 	            return False
 	    return True
 
+# Returns a list of the prime factors of a number, each element of the list
+# being a pair of the form (factor,power)
 def get_prime_factors(n):
 	d = 2
 	factors = []
